@@ -7,6 +7,13 @@ terraform {
       version = ">= 5.80"
     }
   }
+
+  # NOTE: Don't forget to change the bucket and table names!
+  backend "s3" {
+    bucket         = "s3-tfstate-statestoragebucket-hglbsdzabsdf"
+    key            = "simple-scoreboard.tfstate"
+    dynamodb_table = "s3-tfstate-StateLockingTable-82BWLB1SNBST"
+  }
 }
 
 provider "aws" {
